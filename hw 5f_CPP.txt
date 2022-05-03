@@ -1,10 +1,9 @@
 /* 
- Attached:  HW_5f
+ Attached:  Vowel Counter
  ===================================================
- Program: HW_5f          INFORMATION HEADER SECTION
+ Program: Vowel Counter         INFORMATION HEADER SECTION
  ===================================================
  Programmer: Jeremye Scott
- Class: CMPR_121 – 7:00 pm class
  ===================================================
 /*
 
