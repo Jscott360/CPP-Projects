@@ -1,0 +1,46 @@
+/* 
+ Attached:  HW_5f
+ ===================================================
+ Program: HW_5f          INFORMATION HEADER SECTION
+ ===================================================
+ Programmer: Jeremye Scott
+ Class: CMPR_121 – 7:00 pm class
+ ===================================================
+/*
+
+
+
+#include<iostream>
+using namespace std;
+bool isVowel(char ch) 
+{
+    ch=toupper(ch);   
+    return(ch=='A' || ch=='E' || ch=='I' || ch=='O' || ch=='U' );
+}
+int  countVowel(char str[])
+{
+   int i=0,count=0;  
+   while(str[i]!='\0')
+   {
+       if(isVowel(str[i])) 
+          {
+              ++count;  
+          }
+       i++; 
+   }
+   return count;  
+}
+int main()
+{
+    char statement[20]=""; 
+    cout<<"Enter a statement:\n\n";
+    cin.getline(statement,20); 
+    cout<<endl<<"There are "<<countVowel(statement)<<" vowel in the statement."<<endl;
+    return 0;
+}
+
+/* OUTPUT:
+Enter a statement:   
+Say it ain’t so J
+There are 7 vowels in the statement.
+Press any key to continue. . . */
