@@ -1,0 +1,61 @@
+/*
+Programmer: Jeremye Scott
+Date: 03/06/2022
+Assignment: Lab2
+*/
+
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+int main()
+{
+    char firstName[20], lastName[20], fullName[40] ,city[30];
+    
+    cout << "Enter your first name: ";
+    cin.getline(firstName, 20);
+    
+    cout << "Enter your last name: ";
+    cin.getline(lastName, 20);
+    
+    cout << "Enter the state you live in: ";
+    cin.getline(city, 20);
+    
+    strcpy(fullName, firstName);
+    strcat(fullName," ");
+    strcat(fullName, lastName);
+    
+    
+    int noOfCharsInFirstName, noOfCharsInLastName;
+    
+   
+    noOfCharsInFirstName = strlen(firstName);
+    noOfCharsInLastName = strlen(lastName);
+    
+    
+    int res = strcmp(firstName, lastName);
+     
+   
+    cout << "\nHi " << fullName << ". So you live in " << city << ".\nYour first name has "
+        << noOfCharsInFirstName << " characters, and your last name has " 
+        <<  noOfCharsInLastName << " characters."; 
+        
+    
+    if (res==0)
+        cout << "\n\nYour first and last names are same.";
+    else 
+        cout << "\n\nYour first and last names are different.";
+  
+   
+    return 0;
+}
+
+/* OUTPUT:
+Enter your first name:  Thomas
+Enter your last name:  Lee
+Enter the state you live in:  California
+Hi Thomas Lee.  So you live in California.
+Your first name has 6 characters,
+and your last name has 3 characters.
+Your first and last names are different.
+Press any key to continue . . .*/

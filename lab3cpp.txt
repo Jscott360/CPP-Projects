@@ -1,0 +1,51 @@
+/*
+Programmer: Jeremye Scott
+Date: 03/06/2022
+Assignment: Lab3
+*/
+
+#include <iostream>
+
+using namespace std;
+
+// #6
+struct Vehicle{
+    int id;
+    int year;
+    string model;
+};
+
+// #9
+void displayCar(Vehicle vehicle);
+int main()
+{
+    
+ int values[5] = {2, 4, 7, 9, 11};
+ int number = 5;
+ // #1
+ double *doublePtr = NULL;
+ 
+ // #2
+ int *ptr;
+ ptr = &number;
+ 
+ // #3
+ doublePtr = (double*)&values;
+ 
+// #4
+ cout<<*ptr<<endl;
+
+// #5
+ *ptr = 44;
+
+
+
+// 7
+Vehicle myCar;
+
+// 8
+myCar.id = 12345;
+myCar.year = 2005;
+myCar.model = "Ford";
+    return 0;
+}

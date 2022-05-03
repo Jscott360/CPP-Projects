@@ -1,0 +1,74 @@
+/*
+Programmer: Jeremye Scott
+Date: 03/06/2022
+Assignment: Lab2
+*/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    string firstName, lastName, fullName, city;
+    firstName = lastName = fullName = city = "";
+
+    int firstName_length, lastName_length;
+
+    cout << "Enter your first name: ";
+    getline(cin, firstName);                                 
+
+    cout << "\nEnter your last name: ";
+    getline(cin, lastName);                                  
+
+    cout << "\nEnter the state you live in: ";
+    getline(cin, city);                                              
+
+
+    fullName = firstName + " " + lastName;         
+    firstName_length = firstName.size();           
+    lastName_length = lastName.size();
+
+
+    for (int i = 0; firstName[i] != '\0'; ++i)      
+    {
+        if (firstName[i] == ' ')
+        {
+            firstName_length--;
+        }
+    }
+
+    for (int i = 0; lastName[i] != '\0'; ++i)
+    {
+        if (lastName[i] == ' ')
+        {
+            lastName_length--;
+        }
+    }
+
+    cout << "\nHi " << fullName << ". So you live in " << city << "\nYour first name has " << firstName_length << " characters, \nand your last Name has " << lastName_length << " characters.\n\n\n";
+
+    bool same = !(firstName.compare(lastName));             
+
+    system("pause");   
+
+    if (same)
+    {
+        cout << "You first and last names are the same.\n\n\n\n";
+    }
+
+    system("pause");                                        
+
+    return 0;
+}
+
+    return 0;
+}
+
+/* OUTPUT:
+Enter your first name:  Lee
+Enter your last name:  Lee
+Enter the state you live in:  New York
+Hi Lee Lee.  So you live in New York.
+Your first name has 3 characters,
+and your last name has 3 characters.
+Your first and last names are the same.
+Press any key to continue . . .  */

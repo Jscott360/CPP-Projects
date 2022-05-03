@@ -1,0 +1,70 @@
+ // Attached:  HW_4
+// ===================================================
+// Program: HW_4         INFORMATION HEADER SECTION
+//===================================================
+// Programmer: Jeremye Scott
+//Class: CMPR_121 – 6:00 pm class
+//===================================================
+
+#include <iostream>
+#include "Invoice.h"
+
+using namespace std;
+
+void setInvoice(Invoice &inv)
+{
+        cout << "Enter the invoice: " << endl;
+        cout << "INVOICE #:  ";
+        cin >> inv.invoiceNum;
+        cout << "AMOUNT:  ";
+        cin >> inv.amt;
+        cout << "PAID (y/n): ";
+        char ch;
+        cin >> ch;
+        inv.paid = (ch == 'y');
+        cout << endl;
+}
+
+void displayInvoice(Invoice &inv)
+{
+        cout << "---- Invoice Summary ----" << endl;
+        cout << "INVOICE #:   " << inv.invoiceNum << endl;
+        cout << "AMOUNT:      " << inv.amt << endl;
+        cout << "PAID:        " << (inv.paid ? "Paid" : "Not Paid") << endl;
+        cout << endl;
+}
+
+int main()
+{
+        
+        Invoice inv_1, inv_2;
+
+        
+        inv_1.invoiceNum = inv_2.invoiceNum = 0;
+        inv_1.amt = inv_2.amt = 0.0;
+        inv_1.paid = inv_2.paid = false;
+
+        
+        setInvoice(inv_1);
+
+        
+        setInvoice(inv_2);
+
+        
+        system("cls");  
+
+        
+        displayInvoice(inv_1);
+
+        
+        displayInvoice(inv_2);
+
+        return 0;
+}
+
+
+struct Invoice {
+        int invoiceNum;
+        double amt;
+        bool paid;
+};

@@ -1,0 +1,32 @@
+/* 
+ Attached:  HW_5e
+ ===================================================
+ Program: HW_5e           INFORMATION HEADER SECTION
+ ===================================================
+ Programmer: Jeremye Scott
+ Class: CMPR_121 – 7:00 pm class
+ ===================================================
+/*
+
+#include<iostream>
+using namespace std;
+void showEven(int n)
+{
+ if (n<1 ) return ;
+	else
+{
+ if(n%2==1)
+	cout<<n<<"\n";
+	showEven(n-1);
+	}
+	}
+int main()
+{
+	int num=20;
+	showEven(num);
+}
+
+/* OUTPUT:
+Here are all odd numbers from 20 to 0:
+19 17 15 13 11 9 7 5 3 1
+Press any key to continue. . . */

@@ -1,0 +1,36 @@
+/* 
+ Attached:  HW_5d
+ ===================================================
+ Program: HW_5d           INFORMATION HEADER SECTION
+ ===================================================
+ Programmer: Jeremye Scott
+ Class: CMPR_121 – 7:00 pm class
+ ===================================================
+/*
+
+#include <iostream>
+
+using namespace std;
+
+void showEvens(int n){
+    if(n>0){
+        if(n%2==0){
+            showEvens(n-2);
+            cout<<n<<" ";
+        }
+        else{
+            showEvens(n-1);
+        }
+    }
+}
+
+int main()
+{
+    cout<<"Here are all even numbers from 1 to 20:\n";
+    showEvens(20);
+    return 0;
+}    
+
+/*Here are all odd numbers from 20 to 0:
+19 17 15 13 11 9 7 5 3 1
+Press any key to continue. . . */   

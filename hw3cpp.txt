@@ -1,0 +1,128 @@
+/*
+Programmer: Jeremye Scott
+Date: 03/06/2022
+Assignment: HW3
+*/
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+const int MAX_HOURS=23;
+const int MAX_MINS=59;
+const int MAX_SECS=59;
+struct Time
+{int hours;
+int minutes;
+int seconds;
+};
+void getTime(Time&);
+bool isTimeValid(Time);
+void addOneSecond(Time&);
+void displayTime(Time);
+
+int main()
+{Time time;
+char again;
+do
+{system("cls");
+getTime(time);
+addOneSecond(time);
+displayTime(time);
+cout<<"Do it again? (Y/N) ";
+cin>>again;
+}while(again=='Y'||again=='y');
+
+return 0;
+}
+void getTime(Time& time)
+{
+cout<<"Enter the time in \"military time\",(24 hour format),\n";
+cout<<"in the following order:   HH:MM:SS:, (Hours, Minutes, Seconds)\n";
+cout<<"Hours: ";
+cin>>time.hours;
+cout<<"Minutes: ";
+cin>>time.minutes;
+cout<<"Seconds: ";
+cin>>time.seconds;
+while(!isTimeValid(time))
+    {cout<<"Invalid time\n";
+     cout<<"Enter the time in \"military time\",(24 hour format),\n";
+     cout<<"in the following order:   HH:MM:SS:, (Hours, Minutes, Seconds)\n";
+     cout<<"Hours: ";
+     cin>>time.hours;
+     cout<<"Minutes: ";
+     cin>>time.minutes;
+     cout<<"Seconds: ";
+     cin>>time.seconds;
+     }
+}
+bool isTimeValid(Time time)
+{
+if((time.hours>=0&&time.hours<=MAX_HOURS)&&
+    (time.minutes>=0&&time.minutes<=MAX_MINS)&&
+    (time.seconds>=0&&time.seconds<=MAX_SECS))
+         return true;
+return false;
+}
+void addOneSecond(Time& time)
+{time.seconds++;
+if(time.seconds>MAX_SECS)
+     {time.seconds=0;
+     time.minutes++;
+         if(time.minutes>MAX_MINS)
+              {time.minutes=0;
+               time.hours++;
+               if(time.hours>MAX_HOURS)
+                   time.hours=0;
+                   }
+     }
+}
+void displayTime(Time time)
+{cout.fill('0');
+cout<<"After adding one second, the time is ";
+cout<<setw(2)<<time.hours<<":"<<setw(2)<<time.minutes<<":"<<setw(2)<<time.seconds<<"\n";
+}
+
+/*  OUTPUT #1
+Enter the time in "military time", (24-hour format), 
+   in the following order:  HH:MM:SS, (Hours, Minutes, Seconds).
+Hours:  14
+Minutes:  44
+Seconds:  22
+After adding one second, the time is 14:44:23.
+Do it again? (Y/N)  y
+/*  OUTPUT #2
+Enter the time in "military time", (24-hour format), 
+   in the following order:  HH:MM:SS, (Hours, Minutes, Seconds).
+Hours:  1
+Minutes:  9
+Seconds:  59
+Copyright 2012, Dennis Rainey                                                                                                                                                                Page  3 of 3
+After adding one second, the time is 01:10:00.
+Do it again? (Y/N)  y
+/*  OUTPUT #3
+Enter the time in "military time", (24-hour format), 
+   in the following order:  HH:MM:SS, (Hours, Minutes, Seconds).
+Hours:  21
+Minutes:  59
+Seconds:  59
+After adding one second, the time is 22:00:00.
+Do it again? (Y/N)  y
+/*  OUTPUT #4
+Enter the time in "military time", (24-hour format), 
+   in the following order:  HH:MM:SS, (Hours, Minutes, Seconds).
+Hours:  23
+Minutes:  59
+Seconds:  59
+After adding one second, the time is 00:00:00.
+Do it again? (Y/N)  y
+/*  OUTPUT #5
+Enter the time in "military time", (24-hour format), 
+   in the following order:  HH:MM:SS, (Hours, Minutes, Seconds).
+Hours:  27
+Minutes:  23
+Seconds:  11
+Invalid data.
+Enter the time in "military time", (24-hour format), 
+   in the following order:  HH:MM:SS, (Hours, Minutes, Seconds).
+------    */

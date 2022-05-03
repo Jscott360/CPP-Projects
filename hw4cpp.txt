@@ -1,0 +1,85 @@
+ // Attached:  HW_4
+// ===================================================
+// Program: HW_4         INFORMATION HEADER SECTION
+//===================================================
+// Programmer: Jeremye Scott
+//Class: CMPR_121 – 6:00 pm class
+//===================================================
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+struct Box
+{
+   int id;
+   double width;
+   double height;
+   double length;
+   struct Box *next;
+};
+
+int main()
+{
+   Box *head,*temp,*last;
+   int n,i;
+   char ch;
+   cout<<"Enter boxes - (-1 to quit): ";
+   cin>>n;
+   if(n==-1)
+   {
+       exit(-1);
+   }
+   head=NULL;
+   last=NULL;
+   for(i=0;i<n;i++)
+   {
+       if(head == NULL)
+       {
+           temp=new Box;
+           cout<<"ID number : ";
+           cin>>temp->id;
+           cout<<"Width : ";
+           cin>>temp->width;
+           cout<<"Height : ";
+           cin>>temp->height;
+           cout<<"Length : ";
+           cin>>temp->length;
+           temp->next=NULL;
+           head = temp;
+           last=temp;
+       }
+       else
+       {
+           temp=new Box;
+           cout<<"ID number : ";
+           cin>>temp->id;
+           cout<<"Width : ";
+           cin>>temp->width;
+           cout<<"Height : ";
+           cin>>temp->height;
+           cout<<"Length : ";
+           cin>>temp->length;
+           temp->next=NULL;
+           last->next=temp;
+           last=temp;
+       }
+   }
+   cout<<"Would you like to see the list of boxes (Y/N)? ";
+   cin>>ch;
+   if((ch=='n')||(ch=='N'))
+   {
+       exit(-1);
+   }
+   system("clear");
+   temp=head;
+   cout<<"ID#\tWidth\tHeight\tLength"<<endl;
+   cout<<"__________________________________________________"<<endl;
+   while(temp!=NULL)
+   {
+       cout<<temp->id<<"\t"<<temp->width<<"\t"<<temp->height<<"\t"<<temp->length<<endl;
+       temp=temp->next;
+   }
+   return 0;
+}

@@ -1,0 +1,61 @@
+/* 
+ Attached:  lab5
+ ===================================================
+ Program: lab5         INFORMATION HEADER SECTION
+ ===================================================
+ Programmer: Jeremye Scott
+ Class: CMPR_121 – 6:00 pm class
+ ===================================================
+/*
+
+
+
+
+#include<iostream>
+using namespace std;
+enum roaster {TOM = 1, SHARON, BILL, TERESA, JOHN};
+
+int main()
+{
+   int choice;
+   cout<<"This Program will give you a student's birthday.\n";
+   cout<<TOM<<".)=Tom"<<endl;
+   cout<<SHARON<<".)=Sharon"<<endl;
+   cout<<BILL<<".)=Bill"<<endl;
+   cout<<TERESA<<".)=Teresa"<<endl;
+   cout<<JOHN<<".)=John"<<endl;
+   cout<<"Whose birthday do you want to know?";
+   cin>>choice;
+   switch(choice)
+   {
+       case TOM:
+           cout<<"Tom's birthday is January 3.";
+           break;
+       case SHARON:
+           cout<<"Sharon's birthday is April 22.";
+           break;
+       case BILL:
+           cout<<"Bill's birthday is May 19";
+           break;
+       case TERESA:
+           cout<<"Teresa's birthday is July 2.";
+           break;
+       case JOHN:
+           cout<<"John's birthday is June 17.";
+           break;
+       default:
+           cout<<"Invalid selection";      
+   }  
+}
+
+/*
+OUTPUT:
+This program will give you a student's birthday.\n";
+1.) = Tom
+2.) = Sharon
+3.) = Bill
+4.) = Teresa
+5.) = John
+Whose birthday do you want to know?   3
+Bill's birthday is May 19
+/*
