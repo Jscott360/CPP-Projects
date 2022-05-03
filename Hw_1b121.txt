@@ -1,0 +1,55 @@
+/*
+Name: Jeremye Scott
+Class: CMPR121
+Assignment: HW_1b
+*/
+
+
+
+#include<iostream>
+#include <iomanip>
+using namespace std;
+void getTemps(double&, double&, double&);
+double calcAvg(double, double, double);
+void displayAvg(double);
+int main()
+{
+    double t1, t2, t3, avg;
+    getTemps(t1, t2, t3);
+    avg = calcAvg(t1, t2, t3);
+    displayAvg(avg);
+    system("pause");
+    return 0;
+}
+void getTemps(double& t1, double& t2, double& t3)
+{
+    cout << "Enter temperatures of 3 cities.\n";
+    cout << "#1: ";
+    cin >> t1;
+    cout << "#2: ";
+    cin >> t2;
+    cout << "#3: ";
+    cin >> t3;
+}
+double calcAvg(double t1, double t2, double t3)
+{
+    return (t1 + t2 + t3) / 3.;
+}
+void displayAvg(double avg)
+{
+    cout << "The average temperature is " << setprecision(1) << fixed << avg << " degrees.\n";
+}
+
+
+/*
+Output:
+Enter temperatures of 3 cities.
+#1: 77.5
+#2: 82.5
+#3: 71.0
+The average temperature is 77.0 degrees.
+Press any key to continue . . .
+
+
+
+/*

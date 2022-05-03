@@ -1,0 +1,74 @@
+/*
+Name: Jeremye Scott
+Class: CMPR 121
+Assignment: HW_1a
+*/
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+double getSalesAmt();
+double calcCommission(double);
+double calcPay(double, double);
+void displayPay(double, double, double, double);
+int main()
+{
+    double sales, comm, pay, base = 2500;
+    char again;
+    do
+    {
+        sales = getSalesAmt();
+        comm = calcCommission(sales);
+        pay = calcPay(comm, base);
+        displayPay(sales, comm, base, pay);
+        cout << "Do it again?(Y/N) ";
+        cin >> again;
+    } while (toupper(again) == 'Y');
+    return 0;
+}
+
+double getSalesAmt()
+{
+    double sales;
+    cout << "Enter the monthly sales amount: ";
+    cin >> sales;
+    return sales;
+}
+double calcCommission(double sales)
+{
+    double rate, comm;
+    if (sales > 50000)
+        rate = 2;
+    else if (sales > 25000 < 50000)
+        rate = 1.5;
+    else
+        rate = 0;
+    comm = sales * (rate / 100.);
+    return comm;
+}
+double calcPay(double comm, double base)
+{
+    return base + comm;
+}
+void displayPay(double sales, double comm, double base, double pay)
+{
+    cout << "Monthly Sales:    $" << setw(9) << setprecision(2) << fixed << sales << endl;
+    cout << "Commission:       $" << setw(9) << setprecision(2) << fixed << comm << endl;
+    cout << "Base Pay          $" << setw(9) << setprecision(2) << fixed << base << endl;
+    cout << "Total Pay         $" << setw(9) << setprecision(2) << fixed << pay << endl;
+}
+
+
+
+/*
+
+Output:
+Enter the monthly sales amount: 60000
+Monthly Sales:    $ 60000.00
+Commission:       $  1200.00
+Base Pay          $  2500.00
+Total Pay         $  3700.00
+Do it again?(Y/N)
+
+/*
